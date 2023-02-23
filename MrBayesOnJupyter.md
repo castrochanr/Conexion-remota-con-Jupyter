@@ -1,5 +1,6 @@
 # Correr MrBayes desde [Jupyter](https://jupyter.org/)
 
+
 Primero debe tener instalado [Jupyter](https://jupyter.org/) notebook y jupyterlab (o solo lab)
 
 Hay 2 maneras de tener instalado [Jupyter](https://jupyter.org/)
