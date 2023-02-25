@@ -1,25 +1,32 @@
 # Guía rápida para el uso del servidor LaBTAA
 
-En su primer contacto con el servidor este le permitirá crear un nuevo password, este se debe cambiar mediante:
-
+En el primer contacto con el servidor este le permitirá crear un nuevo password, esto  se vera a continuación
 
 ## El primer contacto
 
-Se le proveera de un nombre de usuario que de manera convencional llamaremos *user*
+Al nombre de usuario que de manera convencional se le llamará *user*
 
-Los comandos son para ser utilizados desde la terminal, no desde Jupyter, cuando se va a configurar la coniección a Jupyter se le indicará en el texto.
+Los comandos de este turorial son para ser utilizados directamente desde la terminal, no desde Jupyter, si en algún momento no es así, se le indicará.
 
-El servidor tiene como dirección ip: *__10.5.7.10__*, de tal manera que su usuario debera introducirlo en una terminal con ssh (asumiendo que tiene instalado ssh en su __Computadora Local__), si no lo tiene instalado, lo puede hacer mediante
+Por convención se entiene:
+
+__Terminal, computadora o recurso local__: *Es aquel que sólo afecta a la computadora, sin haber establecido conexión con el servidor. (o máquina local)*
+
+__Terminal, computadora o recurso remoto__: *Es aquel que afecta al servidor, es cuando ya se encuentra conectado o se hace referencia al servidor.*
 
 
-_**nota: Elimine el símbolo "#" que se encuentra al inicio del comando para que la terminal lo reconozca, recuerde que todo lo que vaya posterior al un símbolo de "#" será ignorado**_
+Si asumimos que el servidor tiene como dirección ip: *__192.168..8.1__*, el ususario debera usar esa dirección en una terminal con ssh (asumiendo que tiene instalado ssh en la __Computadora Local__).
+
+Si no tiene instalado ssh __Computadora Local__, se puede instalar mediante el comando a continuación.
+
+_**nota: Todo lo que vaya posterior al un símbolo de "#" será ignorado y tratado como comentario**_
 
 
 ```bash
-#apt-get install openssh-server openssh-client openssh #ejecute si requiere instalar
+sudo apt-get install openssh-server openssh-client openssh #ejecute si requiere instalar
 ```
 
-Una vez instalado ssh, ud puede conectarse al servidor mediante el usuario y pass asignado mediante:
+Una vez instalado ssh, se estable ce la conexcion al servidor mediante el usuario y pass asignado:
 
 
 ```bash
@@ -28,158 +35,177 @@ ssh user@10.5.7.10 #No corra este comando en Jupyter
 
 El comando anterio es para conectarse al sevidor desde la terminal
 
-_**nota: Elimine el símbolo "#" que se encuentra al inicio del comando para que la terminal lo reconozca, recuerde que todo lo que vaya posterior al un símbolo de "#" será ignorado**_ 
+_**nota: Se debe eiminar el símbolo "#" que se encuentra al inicio del comando para que la terminal lo reconozca, todo lo que vaya posterior al un símbolo de "#" será ignorado**_ 
 
 
 ```bash
-#passwd #sólo ejecute si es su primera vez con el servidor
+#passwd #sólo ejecute si es la primera vez con el servidor
 ```
 
-Al entrar al servidor ud podrá ver algo parecido:
+Al entrar al servidor aparecerá algo similar:
 
 ![](001_000.jpg)
 
-__Nota: Todo lo que realizará a continuación sera con su WSL conectado por ssh al servidor:__
+__Nota: Todo lo que realizará a continuación sera con conexión remota en terminal WSL o GNU/Linux (logeado por ssh en el servidor):__
 
-El servidor trae instalado Jupyter notebook y lab nativo, pero la instalación de anaconda se instala en el home de cada ususario, entonces tendrá que hacer su propia instalación en su /home del servidor.
+El servidor generalmente GNU/Linux ya viene con Jupyter notebook y lab nativo instalado, pero la instalación de anaconda se almacena en  en el __$HOME__ de cada ususario y no en el sistema, entonces las instalacione remotas de anaconda en servidores se deben realizar por los usuarios, a menos que se indique lo contrario.
+
+Se describen los pasos a continuación:
 
 
-1. Primero en su explorador de internet de su maquina local, vaya a la pagina de [anaconda](https://www.anaconda.com/products/distribution#Downloads) y busque la ultima versión:
+1. Primero en el explorador de internet de la __maquina local__ se abre la pagina de [anaconda](https://www.anaconda.com/products/distribution#Downloads) y se busca la última versión:  
+https://www.anaconda.com/products/distribution#Downloads
 
-2. El servidor es linux, entonces la versión a instalar es linux, a continuación haga click derecho sobre el ícono __64-Bit (x86) Installer (737 MB)__ y de copiar dirección de enlace y en su terminal del servidor ponga:
+2. Enla sección de descargas, se seleccina el paquete a instalar, si el servidor es GNU/Linux, entonces la versión a instalar es de linux, se copia la dirección de enlace y se pega en la __terminal remota__ del servidor con click derecho sobre el ícono __64-Bit (x86) Installer (737 MB)__ y precedido por el comando __*wget*__, por ejemplo:
 
 
 ```bash
-wget https://www.anaconda.com/products/distribution#Downloads
+wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
 ```
 
-3. Introduzca el comando para ver si se descargo su archivo:
+3. Se introduzce el comando __"ls"__ para listar archivos y ver si se descargo el archivo instalador con extensión **_*.sh_**:
 
 
 ```bash
 ls
 ```
 
-4. Es probable que encuentre una archivo como __Anaconda3-2022.10-Linux-x86_64.sh__ entre sus archivos, entonces ejecute:
+4. Es probable que encuentre un archivo como __Anaconda3-2022.10-Linux-x86_64.sh__ entre los archivos, entonces se ejecutael instalador mediante:
 
 
 ```bash
 sh Anaconda3-2022.10-Linux-x86_64.sh
 ```
 
-5. Siga las instrucciones del instalador, este lo guiará:
+5. Las instrucciones del instalador, guían al usuario:
 
-- Acepte la licencia escribiendo "*yes*" cuando se lo solicite.
+- Se debe aceptar la licencia escribiendo "*yes*" cuando se solicite.
 
-- Precione enter o intro cuando le pregunte si quiere cguardar en su /home/user
+- Se debe aceptar con enter o intro cuando el instaladorpide confirmar el directorio de instalación /home/user
 
-- Escriba "*yes*" al final de la instalación cuando le pregunte si quiere ejecutar conda init
+- Se debe escribir "*yes*" al final de la instalación cuando el instalador pregunta si quiere ejecutar conda init para inicioa automático de anaconda
 
 
 
-6. Salga del servidor escribiendo:
+6. Salga del servidor con la finalidad de reiniciarlo escribiendo:
 
 
 ```bash
 exit
 ```
 
-En su terminal ud antes veía 
+En la terminal antes de la insalación se ve así: 
 __user@labtaa__
 
-7. Vuelva conectarse al servidor, en la ventana aparecerá __(base)__ junto al nombre del ususario:
+7. Posterior a la instalación de anaconda al conectarse al servidor, en la ventana aparecerá __(base)__ junto al nombre del ususario:
 
 __(base)user@labtaa__
 
-8. Confirme que se instaló anaconda revisando los ambientes;
+8. Se confirma que la instalación de anaconda revisando los ambientes;
 
 
 ```bash
 conda info --envs
 ```
 
-En el servidor está instalado Jupyter y en anaconda también, siempre y cuando ud haya instalado anaconda y no una versión minimalista de la distribución, pero confirme sus 
-versiones como se describe a continuación.
+En los servidores con GNU/Linux ya traen preinsalado python y pueden traer Jupyter, la distribución de anaconda también traje jupyter, siempre y cuando se haya instalado anaconda y no una versión minimalista de la como conda, pero se puede confirmar si en la instalación hay Jupyter mediante la revisión de cual jupyter hay en el sistema.
 
-- Desactive anaconda mediante:
+
+- Primero, se desactiva anaconda mediante:
 
 
 ```bash
 conda deactivate
 ```
 
-- confirme que existe un python nativo mediante:
+- Segundo, se confirma que existe un python nativo mediante:
 
 
 ```bash
-which python
+which python # Esto muestra la ruta de instalación nativa de Python
+python --version# Esto muestra la versión nativa de Python
 ```
 
-- Active anaconda de nuevo mediante:
+
+```bash
+which Jupyter #Esto muestra la ruta de instalación nativa de Jupyter
+jupyter --version # Esto muestra la versión nativa de Jupyter
+```
+
+- Tercero, se activa anaconda de nuevamente mediante:
 
 
 ```bash
 conda activate
 ```
 
-- Con anaconda activo vuelva a correr:
+- Con anaconda activo, se vuelve a correr:
 
 
 ```bash
-which python
+which python # Esto muestra la ruta de instalación nativa de Python
+python --version# Esto muestra la versión nativa de Python
 ```
 
-9. Cree un ambiente en donde hara sus intalaciones de anaconda
 
-10. Use el servidor 
+```bash
+which Jupyter #Esto muestra la ruta de instalación nativa de Jupyter
+jupyter --version # Esto muestra la versión nativa de Jupyter
+```
+
+9. Se deben crear ambientes en donde realicen las intalaciones de anaconda de acuerdo a las necesidades de los usuarios
+
+10. Fin del primer contacto
 
 ## Segundo contacto: Conectandose mediante Jupyter
 
-Una vez insalados todos los paquetes a utilizar, el trabajo se realizará mediante Jupyter
+Una vez insalados todos los paquetes a utilizar, el trabajo se realiza mediante Jupyter
 
 
 
-__Nota: Todo lo que realice en este punto es en teminal, nada debe realizar con Jupyter que es lo último de este tutorial__
+__Nota: Todo lo que se indica en este punto debe realizarse en teminal, nada debe realizarse con Jupyter, salvo que se indique__
 
-1. Desde su tertminal de su distribución GNU/Linux o WSL teclee para loguearse:
-
-
-```bash
-ssh user@10.5.7.10 #EL USER DEBE SER EL PROPIO
-```
-
-2. Ponga su password
-
-3. En el servidor remoto ejecutar segun desee "jupyter lab" o "jupyter notebook":
-
-
-```bash
-jupyter lab --no-browser --port=8888
-#jupyter notebook --no-browser --port=8888
-```
-
-La orden anterior permitirá que Jupyter se conecte a un puerto pero sin abrir en explorador
-
-4. __Sin cerrar la terminal anterior__, la cuál continuara ejecutando,abra una segunda terminal de su maquina local y conectese al servidor también
+1. Desde la tertminal de la distribución GNU/Linux o WSL de la computadora local se escribe lo siguiente para loguearse:
 
 
 ```bash
 ssh user@10.5.7.10 #EL USER DEBE SER EL PROPIO
 ```
 
-5. En esta segunda terminal y despues de haberse loguead een el servidor introduzca:
+2. Se loguea con password (a partir de que se conecta, ya se convierte en __remoto__)
+
+3. En el servidor remoto se debe ejecutar con "jupyter lab" o "jupyter notebook", según lo prefiera:
+
+
+```bash
+jupyter lab --no-browser --port=8888 #se debe usar esta para conectar con Jupyter lab
+#jupyter notebook --no-browser --port=8888 #se debe usar esta para conectar con Jupyter notebook
+```
+
+La orden anterior permitirá que Jupyter establezca una conexion remota con el servidor, pero no abrirá una ventana en el explorador de internet
+
+4. __Sin cerrar la terminal anterior__, la cuál continuara ejecutando, se abre una segunda terminal de la maquina local y se conectese al servidor también mediante
+
+
+```bash
+ssh user@10.5.7.10 #EL USER DEBE SER EL PROPIO
+```
+
+5. En esta segunda terminal y despues de haberse logueado en el servidor se escribe:
 
 
 ```bash
 ssh -NL localhost:1234:localhost:8888 user@10.5.7.10
 ```
 
-En este punto su maquina local ya está conectada al servidor por Jupyter __Nota: No cierre ninguna de las dos ventanas en ejecución__
+En este punto la maquina local ya está conectada al servidor por Jupyter __Nota: No se debe cerrar ninguna de las dos ventanas en ejecución__
 
-6. Vaya al explorador de su preferencia de su maquina local y pegue lo siguiente en la dirección:
+6. En la barra de direccionees del explorador de internet de la maquina local y se pega la siguiente en la dirección:
 
 
 
 http://localhost:1234
 
-7. Congratulaciones, está conectado, realice su procedimiento en Jupyter
+7. Congratulaciones, debe haber conexion al servidor por Jupyter notebook o lab
+
+Todo los que se ejecute o guarde en el Jupyter lab en este punto, afecta al servidor remoto
