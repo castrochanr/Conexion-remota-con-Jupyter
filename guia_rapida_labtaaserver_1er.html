@@ -14580,7 +14580,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Gu%C3%ADa-r%C3%A1pida-para-el-uso-del-servidor-LaBTAA">Gu&#237;a r&#225;pida para el uso del servidor LaBTAA<a class="anchor-link" href="#Gu%C3%ADa-r%C3%A1pida-para-el-uso-del-servidor-LaBTAA">&#182;</a></h1><p>En su primer contacto con el servidor este le permitirá crear un nuevo password, este se debe cambiar mediante:</p>
+<h1 id="Gu%C3%ADa-r%C3%A1pida-para-el-uso-del-servidor-LaBTAA">Gu&#237;a r&#225;pida para el uso del servidor LaBTAA<a class="anchor-link" href="#Gu%C3%ADa-r%C3%A1pida-para-el-uso-del-servidor-LaBTAA">&#182;</a></h1><p>En el primer contacto con el servidor este le permitirá crear un nuevo password, esto  se vera a continuación</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="El-primer-contacto">El primer contacto<a class="anchor-link" href="#El-primer-contacto">&#182;</a></h2>
 </div>
 </div>
@@ -14592,10 +14603,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Se le proveera de un nombre de usuario que de manera convencional llamaremos <em>user</em></p>
-<p>Los comandos son para ser utilizados desde la terminal, no desde Jupyter, cuando se va a configurar la coniección a Jupyter se le indicará en el texto.</p>
-<p>El servidor tiene como dirección ip: <em><strong>10.5.7.10</strong></em>, de tal manera que su usuario debera introducirlo en una terminal con ssh (asumiendo que tiene instalado ssh en su <strong>Computadora Local</strong>), si no lo tiene instalado, lo puede hacer mediante</p>
-<p><em><strong>nota: Elimine el símbolo "#" que se encuentra al inicio del comando para que la terminal lo reconozca, recuerde que todo lo que vaya posterior al un símbolo de "#" será ignorado</strong></em></p>
+<p>Al nombre de usuario que de manera convencional se le llamará <em>user</em></p>
+<p>Los comandos de este turorial son para ser utilizados directamente desde la terminal, no desde Jupyter, si en algún momento no es así, se le indicará.</p>
+<p>Por convención se entiene:</p>
+<p><strong>Terminal, computadora o recurso local</strong>: <em>Es aquel que sólo afecta a la computadora, sin haber establecido conexión con el servidor. (o máquina local)</em></p>
+<p><strong>Terminal, computadora o recurso remoto</strong>: <em>Es aquel que afecta al servidor, es cuando ya se encuentra conectado o se hace referencia al servidor.</em></p>
+<p>Si asumimos que el servidor tiene como dirección ip: <em><strong>192.168..8.1</strong></em>, el ususario debera usar esa dirección en una terminal con ssh (asumiendo que tiene instalado ssh en la <strong>Computadora Local</strong>).</p>
+<p>Si no tiene instalado ssh <strong>Computadora Local</strong>, se puede instalar mediante el comando a continuación.</p>
+<p><em><strong>nota: Todo lo que vaya posterior al un símbolo de "#" será ignorado y tratado como comentario</strong></em></p>
 
 </div>
 </div>
@@ -14608,7 +14623,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-bash"><pre><span></span><span class="c1">#apt-get install openssh-server openssh-client openssh #ejecute si requiere instalar</span>
+<div class=" highlight hl-bash"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>openssh-server<span class="w"> </span>openssh-client<span class="w"> </span>openssh<span class="w"> </span><span class="c1">#ejecute si requiere instalar</span>
 </pre></div>
 
      </div>
@@ -14623,7 +14638,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Una vez instalado ssh, ud puede conectarse al servidor mediante el usuario y pass asignado mediante:</p>
+<p>Una vez instalado ssh, se estable ce la conexcion al servidor mediante el usuario y pass asignado:</p>
 
 </div>
 </div>
@@ -14663,7 +14678,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><em><strong>nota: Elimine el símbolo "#" que se encuentra al inicio del comando para que la terminal lo reconozca, recuerde que todo lo que vaya posterior al un símbolo de "#" será ignorado</strong></em></p>
+<p><em><strong>nota: Se debe eiminar el símbolo "#" que se encuentra al inicio del comando para que la terminal lo reconozca, todo lo que vaya posterior al un símbolo de "#" será ignorado</strong></em></p>
 
 </div>
 </div>
@@ -14676,7 +14691,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-bash"><pre><span></span><span class="c1">#passwd #sólo ejecute si es su primera vez con el servidor</span>
+<div class=" highlight hl-bash"><pre><span></span><span class="c1">#passwd #sólo ejecute si es la primera vez con el servidor</span>
 </pre></div>
 
      </div>
@@ -14691,7 +14706,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Al entrar al servidor ud podrá ver algo parecido:</p>
+<p>Al entrar al servidor aparecerá algo similar:</p>
 
 </div>
 </div>
@@ -14715,10 +14730,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Nota: Todo lo que realizará a continuación sera con su WSL conectado por ssh al servidor:</strong></p>
-<p>El servidor trae instalado Jupyter notebook y lab nativo, pero la instalación de anaconda se instala en el home de cada ususario, entonces tendrá que hacer su propia instalación en su /home del servidor.</p>
+<p><strong>Nota: Todo lo que realizará a continuación sera con conexión remota en terminal WSL o GNU/Linux (logeado por ssh en el servidor):</strong></p>
+<p>El servidor generalmente GNU/Linux ya viene con Jupyter notebook y lab nativo instalado, pero la instalación de anaconda se almacena en  en el <strong>$HOME</strong> de cada ususario y no en el sistema, entonces las instalacione remotas de anaconda en servidores se deben realizar por los usuarios, a menos que se indique lo contrario.</p>
+<p>Se describen los pasos a continuación:</p>
 <ol>
-<li>Primero en su explorador de internet de su maquina local, vaya a la pagina de <a href="https://www.anaconda.com/products/distribution#Downloads">anaconda</a> y busque la ultima versión:</li>
+<li>Primero en el explorador de internet de la <strong>maquina local</strong> se abre la pagina de <a href="https://www.anaconda.com/products/distribution#Downloads">anaconda</a> y se busca la última versión:<br>
+<a href="https://www.anaconda.com/products/distribution#Downloads">https://www.anaconda.com/products/distribution#Downloads</a></li>
 </ol>
 
 </div>
@@ -14732,7 +14749,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li>El servidor es linux, entonces la versión a instalar es linux, a continuación haga click derecho sobre el ícono <strong>64-Bit (x86) Installer (737 MB)</strong> y de copiar dirección de enlace y en su terminal del servidor ponga:</li>
+<li>Enla sección de descargas, se seleccina el paquete a instalar, si el servidor es GNU/Linux, entonces la versión a instalar es de linux, se copia la dirección de enlace y se pega en la <strong>terminal remota</strong> del servidor con click derecho sobre el ícono <strong>64-Bit (x86) Installer (737 MB)</strong> y precedido por el comando <strong><em>wget</em></strong>, por ejemplo:</li>
 </ol>
 
 </div>
@@ -14746,7 +14763,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-bash"><pre><span></span>wget<span class="w"> </span>https://www.anaconda.com/products/distribution#Downloads
+<div class=" highlight hl-bash"><pre><span></span>wget<span class="w"> </span>https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
 </pre></div>
 
      </div>
@@ -14762,7 +14779,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li>Introduzca el comando para ver si se descargo su archivo:</li>
+<li>Se introduzce el comando <strong>"ls"</strong> para listar archivos y ver si se descargo el archivo instalador con extensión <strong><em>*.sh</em></strong>:</li>
 </ol>
 
 </div>
@@ -14792,7 +14809,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li>Es probable que encuentre una archivo como <strong>Anaconda3-2022.10-Linux-x86_64.sh</strong> entre sus archivos, entonces ejecute:</li>
+<li>Es probable que encuentre un archivo como <strong>Anaconda3-2022.10-Linux-x86_64.sh</strong> entre los archivos, entonces se ejecutael instalador mediante:</li>
 </ol>
 
 </div>
@@ -14822,18 +14839,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li>Siga las instrucciones del instalador, este lo guiará:</li>
+<li>Las instrucciones del instalador, guían al usuario:</li>
 </ol>
 <ul>
-<li><p>Acepte la licencia escribiendo "<em>yes</em>" cuando se lo solicite.</p>
+<li><p>Se debe aceptar la licencia escribiendo "<em>yes</em>" cuando se solicite.</p>
 </li>
-<li><p>Precione enter o intro cuando le pregunte si quiere cguardar en su /home/user</p>
+<li><p>Se debe aceptar con enter o intro cuando el instaladorpide confirmar el directorio de instalación /home/user</p>
 </li>
-<li><p>Escriba "<em>yes</em>" al final de la instalación cuando le pregunte si quiere ejecutar conda init</p>
+<li><p>Se debe escribir "<em>yes</em>" al final de la instalación cuando el instalador pregunta si quiere ejecutar conda init para inicioa automático de anaconda</p>
 </li>
 </ul>
 <ol>
-<li>Salga del servidor escribiendo:</li>
+<li>Salga del servidor con la finalidad de reiniciarlo escribiendo:</li>
 </ol>
 
 </div>
@@ -14862,10 +14879,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>En su terminal ud antes veía 
+<p>En la terminal antes de la insalación se ve así: 
 <strong>user@labtaa</strong></p>
 <ol>
-<li>Vuelva conectarse al servidor, en la ventana aparecerá <strong>(base)</strong> junto al nombre del ususario:</li>
+<li>Posterior a la instalación de anaconda al conectarse al servidor, en la ventana aparecerá <strong>(base)</strong> junto al nombre del ususario:</li>
 </ol>
 <p><strong>(base)user@labtaa</strong></p>
 
@@ -14880,7 +14897,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li>Confirme que se instaló anaconda revisando los ambientes;</li>
+<li>Se confirma que la instalación de anaconda revisando los ambientes;</li>
 </ol>
 
 </div>
@@ -14909,10 +14926,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>En el servidor está instalado Jupyter y en anaconda también, siempre y cuando ud haya instalado anaconda y no una versión minimalista de la distribución, pero confirme sus 
-versiones como se describe a continuación.</p>
+<p>En los servidores con GNU/Linux ya traen preinsalado python y pueden traer Jupyter, la distribución de anaconda también traje jupyter, siempre y cuando se haya instalado anaconda y no una versión minimalista de la como conda, pero se puede confirmar si en la instalación hay Jupyter mediante la revisión de cual jupyter hay en el sistema.</p>
 <ul>
-<li>Desactive anaconda mediante:</li>
+<li>Primero, se desactiva anaconda mediante:</li>
 </ul>
 
 </div>
@@ -14942,7 +14958,7 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
-<li>confirme que existe un python nativo mediante:</li>
+<li>Segundo, se confirma que existe un python nativo mediante:</li>
 </ul>
 
 </div>
@@ -14956,7 +14972,25 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-bash"><pre><span></span>which<span class="w"> </span>python
+<div class=" highlight hl-bash"><pre><span></span>which<span class="w"> </span>python<span class="w"> </span><span class="c1"># Esto muestra la ruta de instalación nativa de Python</span>
+python<span class="w"> </span>--version#<span class="w"> </span>Esto<span class="w"> </span>muestra<span class="w"> </span>la<span class="w"> </span>versión<span class="w"> </span>nativa<span class="w"> </span>de<span class="w"> </span>Python
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-bash"><pre><span></span>which<span class="w"> </span>Jupyter<span class="w"> </span><span class="c1">#Esto muestra la ruta de instalación nativa de Jupyter</span>
+jupyter<span class="w"> </span>--version<span class="w"> </span><span class="c1"># Esto muestra la versión nativa de Jupyter</span>
 </pre></div>
 
      </div>
@@ -14972,7 +15006,7 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
-<li>Active anaconda de nuevo mediante:</li>
+<li>Tercero, se activa anaconda de nuevamente mediante:</li>
 </ul>
 
 </div>
@@ -15002,7 +15036,7 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
-<li>Con anaconda activo vuelva a correr:</li>
+<li>Con anaconda activo, se vuelve a correr:</li>
 </ul>
 
 </div>
@@ -15016,7 +15050,25 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-bash"><pre><span></span>which<span class="w"> </span>python
+<div class=" highlight hl-bash"><pre><span></span>which<span class="w"> </span>python<span class="w"> </span><span class="c1"># Esto muestra la ruta de instalación nativa de Python</span>
+python<span class="w"> </span>--version#<span class="w"> </span>Esto<span class="w"> </span>muestra<span class="w"> </span>la<span class="w"> </span>versión<span class="w"> </span>nativa<span class="w"> </span>de<span class="w"> </span>Python
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-bash"><pre><span></span>which<span class="w"> </span>Jupyter<span class="w"> </span><span class="c1">#Esto muestra la ruta de instalación nativa de Jupyter</span>
+jupyter<span class="w"> </span>--version<span class="w"> </span><span class="c1"># Esto muestra la versión nativa de Jupyter</span>
 </pre></div>
 
      </div>
@@ -15032,7 +15084,7 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li>Cree un ambiente en donde hara sus intalaciones de anaconda</li>
+<li>Se deben crear ambientes en donde realicen las intalaciones de anaconda de acuerdo a las necesidades de los usuarios</li>
 </ol>
 
 </div>
@@ -15046,7 +15098,7 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li>Use el servidor </li>
+<li>Fin del primer contacto</li>
 </ol>
 
 </div>
@@ -15070,8 +15122,8 @@ versiones como se describe a continuación.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Una vez insalados todos los paquetes a utilizar, el trabajo se realizará mediante Jupyter</p>
-<p><strong>Nota: Todo lo que realice en este punto es en teminal, nada debe realizar con Jupyter que es lo último de este tutorial</strong></p>
+<p>Una vez insalados todos los paquetes a utilizar, el trabajo se realiza mediante Jupyter</p>
+<p><strong>Nota: Todo lo que se indica en este punto debe realizarse en teminal, nada debe realizarse con Jupyter, salvo que se indique</strong></p>
 
 </div>
 </div>
@@ -15084,7 +15136,7 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li>Desde su tertminal de su distribución GNU/Linux o WSL teclee para loguearse:</li>
+<li>Desde la tertminal de la distribución GNU/Linux o WSL de la computadora local se escribe lo siguiente para loguearse:</li>
 </ol>
 
 </div>
@@ -15114,9 +15166,9 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li><p>Ponga su password</p>
+<li><p>Se loguea con password (a partir de que se conecta, ya se convierte en <strong>remoto</strong>)</p>
 </li>
-<li><p>En el servidor remoto ejecutar segun desee "jupyter lab" o "jupyter notebook":</p>
+<li><p>En el servidor remoto se debe ejecutar con "jupyter lab" o "jupyter notebook", según lo prefiera:</p>
 </li>
 </ol>
 
@@ -15131,8 +15183,8 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-bash"><pre><span></span>jupyter<span class="w"> </span>lab<span class="w"> </span>--no-browser<span class="w"> </span>--port<span class="o">=</span><span class="m">8888</span>
-<span class="c1">#jupyter notebook --no-browser --port=8888</span>
+<div class=" highlight hl-bash"><pre><span></span>jupyter<span class="w"> </span>lab<span class="w"> </span>--no-browser<span class="w"> </span>--port<span class="o">=</span><span class="m">8888</span><span class="w"> </span><span class="c1">#se debe usar esta para conectar con Jupyter lab</span>
+<span class="c1">#jupyter notebook --no-browser --port=8888 #se debe usar esta para conectar con Jupyter notebook</span>
 </pre></div>
 
      </div>
@@ -15147,7 +15199,7 @@ versiones como se describe a continuación.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>La orden anterior permitirá que Jupyter se conecte a un puerto pero sin abrir en explorador</p>
+<p>La orden anterior permitirá que Jupyter establezca una conexion remota con el servidor, pero no abrirá una ventana en el explorador de internet</p>
 
 </div>
 </div>
@@ -15160,7 +15212,7 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li><strong>Sin cerrar la terminal anterior</strong>, la cuál continuara ejecutando,abra una segunda terminal de su maquina local y conectese al servidor también</li>
+<li><strong>Sin cerrar la terminal anterior</strong>, la cuál continuara ejecutando, se abre una segunda terminal de la maquina local y se conectese al servidor también mediante</li>
 </ol>
 
 </div>
@@ -15190,7 +15242,7 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li>En esta segunda terminal y despues de haberse loguead een el servidor introduzca:</li>
+<li>En esta segunda terminal y despues de haberse logueado en el servidor se escribe:</li>
 </ol>
 
 </div>
@@ -15219,9 +15271,9 @@ versiones como se describe a continuación.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>En este punto su maquina local ya está conectada al servidor por Jupyter <strong>Nota: No cierre ninguna de las dos ventanas en ejecución</strong></p>
+<p>En este punto la maquina local ya está conectada al servidor por Jupyter <strong>Nota: No se debe cerrar ninguna de las dos ventanas en ejecución</strong></p>
 <ol>
-<li>Vaya al explorador de su preferencia de su maquina local y pegue lo siguiente en la dirección:</li>
+<li>En la barra de direccionees del explorador de internet de la maquina local y se pega la siguiente en la dirección:</li>
 </ol>
 
 </div>
@@ -15247,8 +15299,20 @@ versiones como se describe a continuación.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li>Congratulaciones, está conectado, realice su procedimiento en Jupyter</li>
+<li>Congratulaciones, debe haber conexion al servidor por Jupyter notebook o lab</li>
 </ol>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Todo los que se ejecute o guarde en el Jupyter lab en este punto, afecta al servidor remoto</p>
 
 </div>
 </div>
