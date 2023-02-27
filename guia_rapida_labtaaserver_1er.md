@@ -1,6 +1,143 @@
-# Guía rápida para el uso del servidor LaBTAA
+# Guía rápida para el uso del servidor
 
-En el primer contacto con el servidor este le permitirá crear un nuevo password, esto  se vera a continuación
+
+## El preámbulo
+
+
+El tutorial a continuación aporta la información básica para poder conectarse y trabajar de manera remota a un servidor mediante [ssh](https://www.openssh.com/) desde una terminal local, esto significa que se interactuará a travez de interfaz de línea de comandos (CLI *por sus siglas en ingles*), sin interfáz gráfica.
+
+
+En apoyo a la trazabilidad se implementará el uso de [Jupyter](https://jupyter.org/) lab o notebook, esto con la finalidad de que se utilice como bitácora de trabajo y para compartír codigo. 
+
+Jupyter es una comunidad de gente entusiasta con el manejo de datos y que cree en los estándares de educación y herramientas de acceso abierto. Para ver más, visite la página de de [Jupyter](https://jupyter.org/) en https://jupyter.org/.
+
+%%python3# import image module
+from IPython.display import Image
+
+## Interacción con el servidor
+![Imagen](laptop_servidor.png)
+
+
+## mover archivos dentro del portatil o del servidor
+### Copiar, comando __*cp*__, equivalente a copiar y pegar
+
+*para archivos*:
+
+
+```python
+cp PATH_archivo_origen PATH_archivo_destino
+```
+
+*para carpetas*
+
+
+```python
+cp -R PATH_carpeta__origen PATH_carpeta_destino # es reiterativo para que copie todo el contenido interno
+```
+
+### Ingresar a rutas y salir de ellas
+
+se puede usar *cd ~/*  y la carptera deolverá a /home/user
+
+*Para ingresar*
+
+
+```python
+cd RUTA_DESTINO
+```
+
+para *salir* e ir una carpeta arriba
+
+
+```python
+cd ..
+```
+
+### Ver la ruta de trabajo actual
+
+
+```python
+pwd
+```
+
+### Ver contenido de una ruta en una lista
+
+
+```python
+ls # ya sea en la ruta actual o en una ruta específica|
+```
+
+### Crear y borrar archivos y directorios
+
+
+__Nota: ya sea para copiar o borrar, en caso de los directorios debe usarse -R para que sea reiterativo__
+
+
+```python
+mkdir NOMBRE_DIRECTORIO # Crea un directorio
+```
+
+
+```python
+rm -R NOMBRE_DIRECTORIO # Remueven directorio con contenido
+```
+
+
+```python
+rm archivo,txt # Remueve un archivo de nombre archivo.txt
+```
+
+
+```python
+man ls #llama al manual de cualquier programa, como ls
+```
+
+### Otros
+
+Limpiar la terminal puedehacerse mediante
+<kbd>Alt</kbd> + <kbd>L</kbd>
+
+## Transferir archivos
+
+
+Esto se puede realizar mediante el programa *scp*, que en realidad sigifica secure copy
+
+
+
+
+
+```python
+man scp #nos muestra el manual de scp
+```
+
+Dado que un comando tiene cierta estructura:
+    
+    comando <opciones> <parámetro1> <parámetro2> ...
+
+*scp* se gestiona desde el recurso en el cual se haya la terminal interactuando.
+
+Si la terminal se encuentra conectada al servidor, entonces scp se puede usar
+
+
+```python
+scp [options] origen destino
+```
+
+donde origen es el archivo que quiere copiar y destino es la ruta a donde lo va a copiar, por ejemplo,
+
+si asumimos que el servidor tiene ip 192.168.8.1, entonces para copiar un archivo de nuestr amaquina al servidor pondremos:
+
+
+```python
+scp archivo_local user@192.168.8.1:/home/user/PATH_destino/archivo
+```
+
+
+```python
+scp user@192.168.8.1:/home/user/PATH_destino/archivo PATH_local/archivo_local
+```
+
+__Nota: Si usa la opción -R puede ejecutarse sobre directorios__
 
 ## El primer contacto
 
@@ -22,14 +159,14 @@ Si no tiene instalado ssh __Computadora Local__, se puede instalar mediante el c
 _**nota: Todo lo que vaya posterior al un símbolo de "#" será ignorado y tratado como comentario**_
 
 
-```bash
+```python
 sudo apt-get install openssh-server openssh-client openssh #ejecute si requiere instalar
 ```
 
 Una vez instalado ssh, se estable ce la conexcion al servidor mediante el usuario y pass asignado:
 
 
-```bash
+```python
 ssh user@10.5.7.10 #No corra este comando en Jupyter
 ```
 
@@ -38,7 +175,7 @@ El comando anterio es para conectarse al sevidor desde la terminal
 _**nota: Se debe eiminar el símbolo "#" que se encuentra al inicio del comando para que la terminal lo reconozca, todo lo que vaya posterior al un símbolo de "#" será ignorado**_ 
 
 
-```bash
+```python
 #passwd #sólo ejecute si es la primera vez con el servidor
 ```
 
@@ -59,21 +196,21 @@ https://www.anaconda.com/products/distribution#Downloads
 2. Enla sección de descargas, se seleccina el paquete a instalar, si el servidor es GNU/Linux, entonces la versión a instalar es de linux, se copia la dirección de enlace y se pega en la __terminal remota__ del servidor con click derecho sobre el ícono __64-Bit (x86) Installer (737 MB)__ y precedido por el comando __*wget*__, por ejemplo:
 
 
-```bash
+```python
 wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
 ```
 
 3. Se introduzce el comando __"ls"__ para listar archivos y ver si se descargo el archivo instalador con extensión **_*.sh_**:
 
 
-```bash
+```python
 ls
 ```
 
 4. Es probable que encuentre un archivo como __Anaconda3-2022.10-Linux-x86_64.sh__ entre los archivos, entonces se ejecutael instalador mediante:
 
 
-```bash
+```python
 sh Anaconda3-2022.10-Linux-x86_64.sh
 ```
 
@@ -90,7 +227,7 @@ sh Anaconda3-2022.10-Linux-x86_64.sh
 6. Salga del servidor con la finalidad de reiniciarlo escribiendo:
 
 
-```bash
+```python
 exit
 ```
 
@@ -104,7 +241,7 @@ __(base)user@labtaa__
 8. Se confirma que la instalación de anaconda revisando los ambientes;
 
 
-```bash
+```python
 conda info --envs
 ```
 
@@ -114,20 +251,20 @@ En los servidores con GNU/Linux ya traen preinsalado python y pueden traer Jupyt
 - Primero, se desactiva anaconda mediante:
 
 
-```bash
+```python
 conda deactivate
 ```
 
 - Segundo, se confirma que existe un python nativo mediante:
 
 
-```bash
+```python
 which python # Esto muestra la ruta de instalación nativa de Python
 python --version# Esto muestra la versión nativa de Python
 ```
 
 
-```bash
+```python
 which Jupyter #Esto muestra la ruta de instalación nativa de Jupyter
 jupyter --version # Esto muestra la versión nativa de Jupyter
 ```
@@ -135,20 +272,20 @@ jupyter --version # Esto muestra la versión nativa de Jupyter
 - Tercero, se activa anaconda de nuevamente mediante:
 
 
-```bash
+```python
 conda activate
 ```
 
 - Con anaconda activo, se vuelve a correr:
 
 
-```bash
+```python
 which python # Esto muestra la ruta de instalación nativa de Python
 python --version# Esto muestra la versión nativa de Python
 ```
 
 
-```bash
+```python
 which Jupyter #Esto muestra la ruta de instalación nativa de Jupyter
 jupyter --version # Esto muestra la versión nativa de Jupyter
 ```
@@ -168,7 +305,7 @@ __Nota: Todo lo que se indica en este punto debe realizarse en teminal, nada deb
 1. Desde la tertminal de la distribución GNU/Linux o WSL de la computadora local se escribe lo siguiente para loguearse:
 
 
-```bash
+```python
 ssh user@10.5.7.10 #EL USER DEBE SER EL PROPIO
 ```
 
@@ -177,7 +314,7 @@ ssh user@10.5.7.10 #EL USER DEBE SER EL PROPIO
 3. En el servidor remoto se debe ejecutar con "jupyter lab" o "jupyter notebook", según lo prefiera:
 
 
-```bash
+```python
 jupyter lab --no-browser --port=8888 #se debe usar esta para conectar con Jupyter lab
 #jupyter notebook --no-browser --port=8888 #se debe usar esta para conectar con Jupyter notebook
 ```
@@ -187,14 +324,14 @@ La orden anterior permitirá que Jupyter establezca una conexion remota con el s
 4. __Sin cerrar la terminal anterior__, la cuál continuara ejecutando, se abre una segunda terminal de la maquina local y se conectese al servidor también mediante
 
 
-```bash
+```python
 ssh user@10.5.7.10 #EL USER DEBE SER EL PROPIO
 ```
 
 5. En esta segunda terminal y despues de haberse logueado en el servidor se escribe:
 
 
-```bash
+```python
 ssh -NL localhost:1234:localhost:8888 user@10.5.7.10
 ```
 
