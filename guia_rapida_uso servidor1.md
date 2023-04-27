@@ -13,7 +13,7 @@ En el presente tutorial se promueve el uso de Jupyter [lab](https://jupyterlab.r
 
 
 ## La cadena de conexión
-![Imagen](laptop_servidor.png)
+![ssh_servidor.png](attachment:ssh_servidor.png)
 
 
 
@@ -24,6 +24,8 @@ Los servidores en general, en su mayoría, traen distribuciones GNU/Linux, enton
 Como se sabe en GNU/Linux las rutas están construidas un poco diferente a como es en Windows, todo empieza desde la raíz (_"root"_) que se escribe con el símbolo <kbd>/</kbd>, dentro del directotio raíz hay varios directorios del sistema acompañado de 1 directorio de usarios de nombre  <kbd>/home</kbd> y dentro del directorio de usuarios está el directorio con los documentos de cada usuario  <kbd>/home/username</kbd>, tal y como se muestra en la imagen a continuación.
 
 ![Imagen](001_013.jpg)
+
+
 
 *para carpetas*
 
@@ -356,7 +358,7 @@ rm archivo,txt # Remueve un archivo de nombre archivo.txt
 man ls #llama al manual de cualquier programa, como ls
 ```
 
-### Otros
+### Otros comandos
 
 Limpiar la terminal, esta tarea puede realizarse mediante
 <kbd>Alt</kbd> + <kbd>L</kbd>
